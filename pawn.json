@@ -6,9 +6,8 @@
 	"local": true,
 	"dependencies": [
 		"sampctl/samp-stdlib",
-		"Zeex/samp-plugin-crashdetect",
-		"Zeex/samp-plugin-profiler",
-		"samp-incognito/samp-streamer-plugin"
+		"Zeex/samp-plugin-profiler:v2.15.3",
+		"samp-incognito/samp-streamer-plugin:v2.9.4"
 	],
 	"build": {
 		"name": "",
