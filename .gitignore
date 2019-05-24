@@ -48,7 +48,11 @@ samp.ban
 # Common files
 #
 
+# Sublime-Text 3 files
 *.sublime-workspace
+
+# Visual Studio folder
+.vs/
 
 # Profile list
 gamemodes/new-profile.html
