@@ -1,4 +1,7 @@
 EXPORTS
+	OnGameModeInit
+	OnGameModeExit
+
 	Supports
 	Load
 	Unload
