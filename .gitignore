@@ -28,6 +28,7 @@ server.cfg
 plugins/
 
 # binaries
+bin/
 *.exe
 *.dll
 *.so
@@ -49,7 +50,9 @@ samp.ban
 
 *.sublime-workspace
 
+# Profile list
 gamemodes/new-profile.html
 
-bin/
+# CMake build cache
+src/out
 
