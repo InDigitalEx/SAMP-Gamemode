@@ -7,6 +7,7 @@
 using sampgdk::logprintf;
 
 
+// Plugin ensures
 PLUGIN_EXPORT unsigned int PLUGIN_CALL Supports() {
 	return sampgdk::Supports() | SUPPORTS_PROCESS_TICK;
 }
