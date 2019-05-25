@@ -12,6 +12,7 @@ include(AddSAMPPlugin)
 set(INCLUDES_PATH ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
 include_directories(
+	${CMAKE_CURRENT_SOURCE_DIR}
 	${INCLUDES_PATH}
 	${INCLUDES_PATH}/sampgdk
 	${INCLUDES_PATH}/plugin-sdk
@@ -19,12 +20,17 @@ include_directories(
 )
 
 # Подключение файлов проекта
-add_samp_plugin(Gamemode
+set(Gamemode_SOURCE
 	${INCLUDES_PATH}/plugin-sdk/amxplugin.cpp
 	${INCLUDES_PATH}/sampgdk/sampgdk.c
-	plugin.def
 	main.cpp
 )
+
+if(WIN32)
+	list(APPEND Gamemode_SOURCE plugin.def)
+endif()
+
+add_samp_plugin(Gamemode ${Gamemode_SOURCE})
 
 # Определения для проекта
 add_definitions(-DSAMPGDK_AMALGAMATION)
