@@ -24,6 +24,7 @@ set(Gamemode_SOURCE
 	${INCLUDES_PATH}/plugin-sdk/amxplugin.cpp
 	${INCLUDES_PATH}/sampgdk/sampgdk.c
 	main.cpp
+	CCore.cpp
 )
 
 if(WIN32)

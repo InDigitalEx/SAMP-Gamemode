@@ -5,41 +5,27 @@
 #include <string>
 
 #include "config.h"
+#include "CCore.h"
 
 // namespaces
 using sampgdk::logprintf;
 using namespace std;
 
 
+// Variables
+extern void* pAMXFunctions;
+
+CCore* Core = new(CCore);
+
 // Callbacks
 PLUGIN_EXPORT bool PLUGIN_CALL OnGameModeInit() {
-	auto lasttime = GetTickCount();
-
-
-
-
-	// TODO: Вынести всё в CCore
-	logprintf("[Gamemode] Игровой режим был успешно загружен за <%d> мсек",
-		GetTickCount()-lasttime);
-
-	#ifdef __DATE__ && __TIME__
-	logprintf("Время компиляции: %s %s", __DATE__, __TIME__);
-	#endif
-
-	return true;
+	Core->Init();
+	return Core->PrintInitMessage();
 }
 
 PLUGIN_EXPORT bool PLUGIN_CALL OnGameModeExit() {
-	auto lasttime = GetTickCount();
-
-
-
-
-	// TODO: Вынести всё в CCore
-	logprintf("[Gamemode] Игровой режим был успешно выгружен за <%d> мсек",
-		GetTickCount() - lasttime);
-
-	return true;
+	Core->Destroy();
+	return Core->PrintDestroyMessage();
 }
 
 // Plugin ensures
@@ -48,6 +34,7 @@ PLUGIN_EXPORT unsigned int PLUGIN_CALL Supports() {
 }
 
 PLUGIN_EXPORT bool PLUGIN_CALL Load(void **ppData) {
+	pAMXFunctions = ppData[PLUGIN_DATA_AMX_EXPORTS];
 	return sampgdk::Load(ppData);
 }
 
