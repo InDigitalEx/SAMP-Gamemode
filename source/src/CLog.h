@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include <sampgdk.h>
+#include <string>
 
 using namespace std;
 

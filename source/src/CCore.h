@@ -2,11 +2,12 @@
 #define CCore_H
 
 #include <sampgdk.h>
-#include <ctime>
 #include <string>
+#include <ctime>
 
 #include <config.h>
 #include <CLog.h>
+
 extern CLog* Log;
 
 

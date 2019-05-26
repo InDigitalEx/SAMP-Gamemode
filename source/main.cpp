@@ -2,8 +2,14 @@
 #include <plugincommon.h>
 #include <sampgdk.h>
 
+#include <vector>
+
 #include <CCore.h>
 #include <CLog.h>
+#include <CPlayer.h>
+
+// Namespaces
+using namespace std;
 
 // Variables
 extern void* pAMXFunctions;
