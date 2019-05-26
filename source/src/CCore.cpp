@@ -38,7 +38,7 @@ void CCore::UpdateServerData() {
 	SendRconCommand(this->mapname.c_str());
 }
 
-bool CCore::PrintInitMessage()
+bool CCore::ShowInitMessage()
 {
 	Log->write(LOG_INFO, (string)"Игровой режим был успешно загружен за <"
 		+ to_string(clock() - this->initTime) + (string)"> мсек");
@@ -50,7 +50,7 @@ bool CCore::PrintInitMessage()
 	return true;
 }
 
-bool CCore::PrintDestroyMessage()
+bool CCore::ShowDestroyMessage()
 {
 	Log->write(LOG_INFO, "Игровой режим был успешно выгружен");
 	return true;

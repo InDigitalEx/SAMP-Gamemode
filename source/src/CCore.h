@@ -21,8 +21,8 @@ public:
 	void Init();
 	void Destroy();
 	void UpdateServerData();
-	bool PrintInitMessage();
-	bool PrintDestroyMessage();
+	bool ShowInitMessage();
+	bool ShowDestroyMessage();
 private:
 	const clock_t initTime;
 	string gamemode;
