@@ -1,2 +1,5 @@
 *.pwn linguist-language=Pawn
 *.inc linguist-language=Pawn
+*.h linguist-language=C++
+*.cpp linguist-language=C++
+*.c linguist-language=C
