@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <string>
 
-#include "config.h"
 #include "CCore.h"
 
 // namespaces

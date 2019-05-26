@@ -58,5 +58,5 @@ samp.ban
 gamemodes/new-profile.html
 
 # CMake build cache
-src/out
+source/out
 
