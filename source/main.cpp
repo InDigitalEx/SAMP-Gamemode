@@ -1,20 +1,15 @@
 // Includes
 #include <plugincommon.h>
 #include <sampgdk.h>
-#include <stdio.h>
-#include <string>
 
-#include "CCore.h"
-
-// namespaces
-using sampgdk::logprintf;
-using namespace std;
-
+#include <CCore.h>
+#include <CLog.h>
 
 // Variables
 extern void* pAMXFunctions;
 
-CCore* Core = new(CCore);
+CCore* Core = new CCore;
+CLog* Log = new CLog(LOG_DEBUG);
 
 // Callbacks
 PLUGIN_EXPORT bool PLUGIN_CALL OnGameModeInit() {

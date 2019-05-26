@@ -2,9 +2,13 @@
 #define CCore_H
 
 #include <sampgdk.h>
-#include <config.h>
 #include <ctime>
 #include <string>
+
+#include <config.h>
+#include <CLog.h>
+extern CLog* Log;
+
 
 using namespace std;
 

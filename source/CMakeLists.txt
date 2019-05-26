@@ -10,9 +10,11 @@ include(AddSAMPPlugin)
 
 # Включение инклудов и библиотек
 set(INCLUDES_PATH ${CMAKE_CURRENT_SOURCE_DIR}/includes)
+set(CLASSES_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}
+	${CLASSES_PATH}
 	${INCLUDES_PATH}
 	${INCLUDES_PATH}/sampgdk
 	${INCLUDES_PATH}/plugin-sdk
@@ -24,7 +26,9 @@ set(Gamemode_SOURCE
 	${INCLUDES_PATH}/plugin-sdk/amxplugin.cpp
 	${INCLUDES_PATH}/sampgdk/sampgdk.c
 	main.cpp
-	CCore.cpp
+	${CLASSES_PATH}/CLog.cpp
+	${CLASSES_PATH}/CCore.cpp
+	${CLASSES_PATH}/CPlayer.cpp
 )
 
 if(WIN32)

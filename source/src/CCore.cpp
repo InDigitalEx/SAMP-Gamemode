@@ -40,11 +40,11 @@ void CCore::UpdateServerData() {
 
 bool CCore::PrintInitMessage()
 {
-	sampgdk::logprintf("[Gamemode] »гровой режим был успешно загружен за <%d> мсек",
-		clock()-this->initTime);
+	Log->write(LOG_INFO, (string)"»гровой режим был успешно загружен за <"
+		+ to_string(clock() - this->initTime) + (string)"> мсек");
 
 	#if defined(__DATE__) && defined(__TIME__)
-		sampgdk::logprintf("¬рем€ компил€ции: %s %s", __DATE__, __TIME__);
+	Log->write(LOG_DEBUG, (string)"¬рем€ компил€ции: " + __DATE__ + " " + __TIME__);
 	#endif
 
 	return true;
@@ -52,6 +52,6 @@ bool CCore::PrintInitMessage()
 
 bool CCore::PrintDestroyMessage()
 {
-	sampgdk::logprintf("[Gamemode] »гровой режим был успешно выгружен");
+	Log->write(LOG_INFO, "»гровой режим был успешно выгружен");
 	return true;
 }
