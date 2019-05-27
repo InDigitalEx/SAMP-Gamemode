@@ -16,6 +16,7 @@ extern void *pAMXFunctions;
 
 CCore* Core = new CCore;
 CLog* Log = new CLog(LOG_DEBUG);
+vector<CPlayer> Player(MAX_PLAYERS);
 
 // Callbacks
 PLUGIN_EXPORT bool PLUGIN_CALL OnGameModeInit() {
@@ -24,15 +25,17 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnGameModeInit() {
 }
 
 PLUGIN_EXPORT bool PLUGIN_CALL OnGameModeExit() {
-	Core->Destroy();
+	Core->Exit();
 	return Core->ShowDestroyMessage();
 }
 
 PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerConnect(int playerid) {
+	Player[playerid].Connect(playerid);
 	return true;
 }
 
 PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerDisconnect(int playerid, int reason) {
+	Player[playerid].Disconnect(playerid, reason);
 	return true;
 }
 

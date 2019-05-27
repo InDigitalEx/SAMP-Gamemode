@@ -19,7 +19,7 @@ class CCore
 public:
 	CCore();
 	void Init();
-	void Destroy();
+	void Exit();
 	void UpdateServerData();
 	bool ShowInitMessage();
 	bool ShowDestroyMessage();

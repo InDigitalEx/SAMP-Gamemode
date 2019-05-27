@@ -19,7 +19,7 @@ void CCore::Init()
 	this->UpdateServerData();
 }
 
-void CCore::Destroy()
+void CCore::Exit()
 {
 	this->gamemode = "Loading..";
 	this->hostname = "hostname Reload Role Play | Loading...";
@@ -41,7 +41,7 @@ void CCore::UpdateServerData() {
 bool CCore::ShowInitMessage()
 {
 	Log->write(LOG_INFO, (string)"»гровой режим был успешно загружен за <"
-		+ to_string(clock() - this->initTime) + (string)"> мсек");
+		+ to_string(clock() - this->initTime) + "> мсек");
 
 	#if defined(__DATE__) && defined(__TIME__)
 	Log->write(LOG_DEBUG, (string)"¬рем€ компил€ции: " + __DATE__ + " " + __TIME__);
