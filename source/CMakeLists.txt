@@ -52,13 +52,22 @@ add_samp_plugin(Gamemode ${Gamemode_SOURCE})
 
 # Определения для проекта
 add_definitions(-DSAMPGDK_AMALGAMATION)
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
 
 if(MSVC)
 	add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
 
 # Подключение библиотек
-target_link_libraries(Gamemode mysqlcppconn)
+set(Gamemode_LIBRARIES mysqlcppconn-static)
+
+if(WIN32)
+    list(APPEND Gamemode_LIBRARIES libeay32 ssleay32)
+elseif(LINUX)
+    list(APPEND Gamemode_LIBRARIES ssl crypto)
+endif()
+
+target_link_libraries(Gamemode ${Gamemode_LIBRARIES})
 
 # Выходной каталог для плагина
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../plugins)

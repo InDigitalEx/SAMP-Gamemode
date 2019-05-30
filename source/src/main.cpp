@@ -4,6 +4,8 @@
 
 #include <vector>
 
+#include <mysql/jdbc.h>
+
 #include <CCore.h>
 #include <CLog.h>
 #include <CPlayer.h>
