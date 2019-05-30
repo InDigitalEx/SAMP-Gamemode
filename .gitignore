@@ -30,8 +30,8 @@ plugins/
 # binaries
 bin/
 *.exe
-*.dll
-*.so
+/*.dll
+/*.so
 announce
 samp03svr
 samp-npc
@@ -53,10 +53,12 @@ samp.ban
 
 # Visual Studio folder
 .vs/
+.vscode/
 
 # Profile list
 gamemodes/new-profile.html
 
 # CMake build cache
 source/out
+source/build
 

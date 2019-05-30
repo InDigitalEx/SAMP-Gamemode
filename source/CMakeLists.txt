@@ -1,7 +1,10 @@
+# TODO: Refactoring, add subdirectory manage
+
 project(Gamemode)
 
 cmake_minimum_required(VERSION 2.8)
 
+set(CMAKE_CXX_STANDARD 17)
 # CMake модули
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
@@ -12,6 +15,10 @@ include(AddSAMPPlugin)
 set(INCLUDES_PATH ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 set(SOURCE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
+set(MYSQL_PATH ${INCLUDES_PATH}/mysqlcppconn)
+
+find_package(Boost REQUIRED)
+
 include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${SOURCE_PATH}
@@ -19,6 +26,12 @@ include_directories(
 	${INCLUDES_PATH}/sampgdk
 	${INCLUDES_PATH}/plugin-sdk
 	${INCLUDES_PATH}/plugin-sdk/amx
+	${MYSQL_PATH}/include
+	${Boost_INCLUDE_DIR}
+)
+
+link_directories(
+    ${MYSQL_PATH}/lib
 )
 
 # Подключение файлов проекта
@@ -43,6 +56,9 @@ add_definitions(-DSAMPGDK_AMALGAMATION)
 if(MSVC)
 	add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
+
+# Подключение библиотек
+target_link_libraries(Gamemode mysqlcppconn)
 
 # Выходной каталог для плагина
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../plugins)
